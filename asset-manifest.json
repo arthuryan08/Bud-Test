@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Bud-Test/static/css/main.67ace592.chunk.css",
+    "main.js": "/Bud-Test/static/js/main.0716c859.chunk.js",
+    "main.js.map": "/Bud-Test/static/js/main.0716c859.chunk.js.map",
+    "runtime-main.js": "/Bud-Test/static/js/runtime-main.516215e8.js",
+    "runtime-main.js.map": "/Bud-Test/static/js/runtime-main.516215e8.js.map",
+    "static/js/2.0486b287.chunk.js": "/Bud-Test/static/js/2.0486b287.chunk.js",
+    "static/js/2.0486b287.chunk.js.map": "/Bud-Test/static/js/2.0486b287.chunk.js.map",
+    "index.html": "/Bud-Test/index.html",
+    "static/css/main.67ace592.chunk.css.map": "/Bud-Test/static/css/main.67ace592.chunk.css.map",
+    "static/js/2.0486b287.chunk.js.LICENSE.txt": "/Bud-Test/static/js/2.0486b287.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.516215e8.js",
+    "static/js/2.0486b287.chunk.js",
+    "static/css/main.67ace592.chunk.css",
+    "static/js/main.0716c859.chunk.js"
+  ]
+}
