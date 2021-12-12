@@ -71,7 +71,7 @@ const ResultTitle = styled.h1`
   font-size: 20px;
   font-weight: 500;
 `;
-const Result = styled.div`
+const Result = styled.div<{ mainBorder?: string }>`
   background-color: #444;
   margin: 8px 0;
   padding: 15px 20px;
@@ -81,6 +81,8 @@ const Result = styled.div`
   color: #eee;
   font-size: 25px;
   font-weight: bold;
+  border: 1px solid ${(props) =>
+    props.mainBorder ? `${props.mainBorder}` : `transparent`};
 }
 `;
 
@@ -208,12 +210,12 @@ function App() {
           {result ? (
             <>
               <ResultTitle>A maior sequência encontrada foi: </ResultTitle>
-              <Result>{result}</Result>
+              <Result mainBorder={"chartreuse"}>{result}</Result>
               <ResultTitle>Sequências encontradas: </ResultTitle>
               <Result>
-                <ResultTitle>Sequencia 1: {sequence1} </ResultTitle>
-                <ResultTitle>Sequencia 2: {sequence2} </ResultTitle>
-                <ResultTitle>Sequencia 3: {sequence3} </ResultTitle>
+                <ResultTitle>Sequência 1: {sequence1} </ResultTitle>
+                <ResultTitle>Sequência 2: {sequence2} </ResultTitle>
+                <ResultTitle>Sequência 3: {sequence3} </ResultTitle>
               </Result>
             </>
           ) : null}
