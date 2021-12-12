@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { FaGithubSquare } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -44,7 +46,7 @@ const Input = styled.input`
   color: #eee;
   font-size: 16px;
   &:focus {
-    outline: 2px solid chartreuse;
+    outline: 1px solid chartreuse;
   }
 `;
 const Button = styled.button`
@@ -58,8 +60,13 @@ const Button = styled.button`
   font-weight: bold;
   cursor: pointer;
   border: none;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
   flex: 1;
+  &:hover {
+    background-color: #444;
+    color: chartreuse;
+    border: 1px solid chartreuse;
+  }
 `;
 const ResultArea = styled.div`
   width: 100%;
@@ -85,9 +92,30 @@ const Result = styled.div<{ mainBorder?: string }>`
     props.mainBorder ? `${props.mainBorder}` : `transparent`};
 }
 `;
+const Footer = styled.footer`
+  text-align: center;
+  padding: 16px 0;
+  width: 100%;
+  bottom: 0;
+  position: inherit;
+`;
+const Media = styled.a`
+  font-size: 40px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  &:hover {
+    color: chartreuse;
+  }
+`;
+const Copyright = styled.p`
+  color: #868686;
+  text-align: center;
+  margin: 0;
+`;
 
 function App() {
-  const [inputData, setInputData] = useState("34561389016234");
+  const [inputData, setInputData] = useState("");
   const [result, setResult] = useState<String>("");
 
   const [sequence1, setSequence1] = useState<String>("");
@@ -99,8 +127,8 @@ function App() {
   };
 
   const handleClick = () => {
-    let valueNum = null;
-    let before: Number | null = 0;
+    let valueNum: number | null = null;
+    let before: number | null = null;
     let sequence1 = "";
     let sequence2 = "";
     let sequence3 = "";
@@ -108,7 +136,7 @@ function App() {
     for (let value of inputData) {
       valueNum = Number(value);
 
-      if (valueNum > before && valueNum - 1 === before) {
+      if (valueNum > Number(before) && valueNum - 1 === before) {
         if (sequence1 === "") {
           sequence1 += before;
           sequence1 += value;
@@ -123,7 +151,10 @@ function App() {
           sequence2 += before;
           sequence2 += value;
           before = valueNum;
-        } else if (String(before) === sequence2.charAt(sequence2.length - 1)) {
+        } else if (
+          String(before) === sequence2.charAt(sequence2.length - 1) &&
+          sequence3 === ""
+        ) {
           sequence2 += value;
           before = valueNum;
         } else if (sequence3 === "") {
@@ -142,9 +173,12 @@ function App() {
         } else if (String(before) === sequence2.charAt(sequence2.length - 1)) {
           sequence2 += value;
           before = valueNum;
-        } else {
-          sequence2 += before;
-          sequence2 += value;
+        } else if (sequence3 === "") {
+          sequence3 += before;
+          sequence3 += value;
+          before = valueNum;
+        } else if (String(before) === sequence3.charAt(sequence2.length - 1)) {
+          sequence3 += value;
           before = valueNum;
         }
       } else {
@@ -214,13 +248,26 @@ function App() {
               <ResultTitle>Sequências encontradas: </ResultTitle>
               <Result>
                 <ResultTitle>Sequência 1: {sequence1} </ResultTitle>
-                <ResultTitle>Sequência 2: {sequence2} </ResultTitle>
-                <ResultTitle>Sequência 3: {sequence3} </ResultTitle>
+                <ResultTitle>
+                  Sequência 2: {sequence2 ? sequence2 : "Poxa, nenhuma outra!"}
+                </ResultTitle>
+                <ResultTitle>
+                  Sequência 3: {sequence3 ? sequence3 : "Nada por aqui!"}{" "}
+                </ResultTitle>
               </Result>
             </>
           ) : null}
         </ResultArea>
       </Container>
+      <Footer>
+        <Media href="https://github.com/arthuryan08" target="_blank">
+          <FaGithubSquare />
+        </Media>
+        <Media href="https://www.linkedin.com/in/arthuryan8" target="_blank">
+          <FaLinkedin />
+        </Media>
+        <Copyright>© Copyright 2021 Made by Arthur Yan to Bud.</Copyright>
+      </Footer>
     </div>
   );
 }
