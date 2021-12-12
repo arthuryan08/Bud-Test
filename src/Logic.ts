@@ -18,6 +18,7 @@ export const SequenceFinder = ({
   let sequence1: string = "";
   let sequence2: string = "";
   let sequence3: string = "";
+  let test = "06589012764569";
 
   for (let value of inputData) {
     valueNum = Number(value);
@@ -56,6 +57,13 @@ export const SequenceFinder = ({
         sequence1 += before;
         sequence1 += value;
         before = valueNum;
+      } else if (String(before) === sequence1.charAt(sequence1.length - 1)) {
+        sequence1 += value;
+        before = valueNum;
+      } else if (sequence2 === "") {
+        sequence2 += before;
+        sequence2 += value;
+        before = valueNum;
       } else if (String(before) === sequence2.charAt(sequence2.length - 1)) {
         sequence2 += value;
         before = valueNum;
@@ -63,7 +71,7 @@ export const SequenceFinder = ({
         sequence3 += before;
         sequence3 += value;
         before = valueNum;
-      } else if (String(before) === sequence3.charAt(sequence2.length - 1)) {
+      } else if (String(before) === sequence3.charAt(sequence3.length - 1)) {
         sequence3 += value;
         before = valueNum;
       }
