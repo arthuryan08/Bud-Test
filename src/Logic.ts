@@ -18,7 +18,6 @@ export const SequenceFinder = ({
   let sequence1: string = "";
   let sequence2: string = "";
   let sequence3: string = "";
-  let test = "06589012764569";
 
   for (let value of inputData) {
     valueNum = Number(value);
