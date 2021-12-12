@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { SetStateAction, useState } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -86,19 +86,19 @@ const Result = styled.div`
 
 function App() {
   const [inputData, setInputData] = useState("34561389016234");
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState<String>("");
 
-  const [sequence1, setSequence1] = useState("");
-  const [sequence2, setSequence2] = useState("");
-  const [sequence3, setSequence3] = useState("");
+  const [sequence1, setSequence1] = useState<String>("");
+  const [sequence2, setSequence2] = useState<String>("");
+  const [sequence3, setSequence3] = useState<String>("");
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputData(e.target.value);
   };
 
   const handleClick = () => {
     let valueNum = null;
-    let before = null;
+    let before: Number | null = 0;
     let sequence1 = "";
     let sequence2 = "";
     let sequence3 = "";
