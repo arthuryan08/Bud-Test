@@ -75,7 +75,22 @@ export const SequenceFinder = ({
   setSequence2(sequence2);
   setSequence3(sequence3);
 
-  if (sequence2 === "" && sequence3 === "") {
+  if (
+    sequence1.length > sequence2.length &&
+    sequence1.length > sequence3.length
+  ) {
+    setResult(sequence1);
+  } else if (
+    sequence2.length > sequence1.length &&
+    sequence2.length > sequence3.length
+  ) {
+    setResult(sequence2);
+  } else if (
+    sequence3.length > sequence1.length &&
+    sequence3.length > sequence2.length
+  ) {
+    setResult(sequence3);
+  } else if (sequence2 === "" && sequence3 === "") {
     setResult(sequence1);
   } else if (sequence1.length === sequence2.length) {
     if (Number(sequence1.charAt(0)) > Number(sequence2.charAt(0))) {
@@ -95,20 +110,5 @@ export const SequenceFinder = ({
     } else {
       setResult(sequence3);
     }
-  } else if (
-    sequence1.length > sequence2.length &&
-    sequence1.length > sequence3.length
-  ) {
-    setResult(sequence1);
-  } else if (
-    sequence2.length > sequence1.length &&
-    sequence2.length > sequence3.length
-  ) {
-    setResult(sequence2);
-  } else if (
-    sequence3.length > sequence1.length &&
-    sequence3.length > sequence2.length
-  ) {
-    setResult(sequence3);
   }
 };
