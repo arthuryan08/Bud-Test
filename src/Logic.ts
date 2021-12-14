@@ -1,3 +1,6 @@
+//TESTE O SISTEMA COMPLETO NO MEU GITHUB https://github.com/arthuryan08/Bud-Test
+//Esse arquivo é somente o da lógica do programa, colocado em um arquivo separado pra ficar mais organizado.
+
 type SequenceFinderProps = {
   inputData: string;
   setSequence1: (sequence1: string) => void;
