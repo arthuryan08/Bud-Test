@@ -1,4 +1,5 @@
-//TESTE O SISTEMA COMPLETO NO MEU GITHUB https://github.com/arthuryan08/Bud-Test
+//VEJA O CÓDIGO COMPLETO NO MEU GITHUB https://github.com/arthuryan08/Bud-Test
+//Ou teste o sistema em https://arthuryan08.github.io/Bud-Test/
 //Esse arquivo é somente o da lógica do programa, colocado em um arquivo separado pra ficar mais organizado.
 
 type SequenceFinderProps = {
